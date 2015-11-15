@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <string.h>
 #include "hangman.h"
+#include <time.h>
 
 
 int getWord(char secret[]){
@@ -20,6 +21,7 @@ int getWord(char secret[]){
 
     do{
         // generate random number between 0 and filesize
+		srand(time(NULL));
         long int random = (rand() % size) + 1;
         // seek to the random position of file
         fseek(fp, random, SEEK_SET);
